@@ -24,6 +24,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./Dockerfile
+        file: ./projet_chef_d_oeuvre/Dockerfile
         push: true
         tags: livre.azurecr.io/livre:v1  
