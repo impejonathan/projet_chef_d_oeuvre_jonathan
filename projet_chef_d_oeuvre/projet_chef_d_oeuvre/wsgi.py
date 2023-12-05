@@ -14,3 +14,5 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'projet_chef_d_oeuvre.settings')
 
 application = get_wsgi_application()
+
+
