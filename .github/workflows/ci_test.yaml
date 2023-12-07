@@ -34,13 +34,16 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r projet_chef_d_oeuvre/requirements.txt  # Mise à jour du chemin relatif
 
     - name: Run migrations
-      run: python manage.py migrate
+      run: |
+        cd projet_chef_d_oeuvre
+        python manage.py migrate
 
     - name: Run tests with coverage
       run: |
+        cd projet_chef_d_oeuvre
         coverage run --source='.' manage.py test
         coverage report
 
