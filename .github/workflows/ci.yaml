@@ -1,4 +1,4 @@
-name: CI
+name: Build and Push Docker Image
 
 on:
   push:
@@ -10,20 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8' # Remplacez par la version de Python que vous utilisez
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt # Assurez-vous d'avoir un fichier requirements.txt à la racine de votre projet
-
-    - name: Run tests
-      run: |
-        python manage.py test # Exécutez vos tests Django ici
-
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
