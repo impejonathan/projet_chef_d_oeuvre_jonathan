@@ -19,8 +19,8 @@ from Livre_date import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', views.index ),
+    path('index/', views.index, name='index'),  # add this line
     path('', views.login_page, name='login'),
-    path('signup', views.signup_page, name='signup'),
+    path('signup/', views.signup_page, name='signup'),  # change 'signup' to 'signup/'
     path('logout/', views.logout_user, name='logout'),
 ]
