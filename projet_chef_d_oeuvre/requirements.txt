@@ -6,3 +6,6 @@ whitenoise
 gunicorn
 psycopg
 psycopg2-binary
+coverage==4.3.2
+pytest==7.4.3
+pytest-django==4.7.0
