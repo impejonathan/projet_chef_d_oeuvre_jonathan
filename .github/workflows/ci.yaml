@@ -11,9 +11,9 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: livre
+          POSTGRES_USER: jonathan_impe
+          POSTGRES_PASSWORD: XgZG4WTHg1WAHMbd
         ports:
           - 5432:5432
         options: >-
@@ -41,11 +41,11 @@ jobs:
       env:
         DJANGO_DB_MODE: dev
         DEBUG: False
-        DB_NAME: ${{ secrets.DB_NAME }}
-        DB_USER: ${{ secrets.DB_USER }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_NAME: livre
+        DB_USER: jonathan_impe
+        DB_PASSWORD: XgZG4WTHg1WAHMbd
+        DB_HOST: livre.postgres.database.azure.com
+        DB_PORT: 5432
       
     - name: Run tests with coverage
       run: |
@@ -54,11 +54,11 @@ jobs:
       env:
         DJANGO_DB_MODE: dev
         DEBUG: False
-        DB_NAME: ${{ secrets.DB_NAME }}
-        DB_USER: ${{ secrets.DB_USER }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_NAME: livre
+        DB_USER: jonathan_impe
+        DB_PASSWORD: XgZG4WTHg1WAHMbd
+        DB_HOST: livre.postgres.database.azure.com
+        DB_PORT: 5432
         
     - name: Check minimum test coverage
       run: |
@@ -67,8 +67,8 @@ jobs:
       env:
         DJANGO_DB_MODE: dev
         DEBUG: False
-        DB_NAME: ${{ secrets.DB_NAME }}
-        DB_USER: ${{ secrets.DB_USER }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_NAME: livre
+        DB_USER: jonathan_impe
+        DB_PASSWORD: XgZG4WTHg1WAHMbd
+        DB_HOST: livre.postgres.database.azure.com
+        DB_PORT: 5432
