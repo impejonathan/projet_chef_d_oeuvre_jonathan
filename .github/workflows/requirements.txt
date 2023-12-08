@@ -1,0 +1,15 @@
+django==4.1
+python-dotenv
+pandas
+django-dotenv
+whitenoise
+gunicorn
+psycopg
+psycopg2-binary
+coverage==4.3.2
+pytest==7.4.3
+pytest-django==4.7.0
+
+# pytest==7.4.3
+# pytest-cov==4.1.0
+# pytest-django==4.7.0
