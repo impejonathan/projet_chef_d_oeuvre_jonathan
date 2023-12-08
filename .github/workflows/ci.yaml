@@ -33,9 +33,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r ./projet_chef_d_oeuvre/requirements.txt
+      working-directory: ./projet_chef_d_oeuvre
         
     - name: Run migrations
       run: python manage.py migrate
+      working-directory: ./projet_chef_d_oeuvre
       env:
         DJANGO_DB_MODE: dev
         DEBUG: False
@@ -48,6 +50,7 @@ jobs:
     - name: Run tests with coverage
       run: |
         pytest --cov=./ --cov-report=xml
+      working-directory: ./projet_chef_d_oeuvre
       env:
         DJANGO_DB_MODE: dev
         DEBUG: False
@@ -60,6 +63,7 @@ jobs:
     - name: Check minimum test coverage
       run: |
         coverage report --fail-under=80
+      working-directory: ./projet_chef_d_oeuvre
       env:
         DJANGO_DB_MODE: dev
         DEBUG: False
