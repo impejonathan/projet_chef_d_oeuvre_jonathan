@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:15
+        image: postgres:12
         env:
-          POSTGRES_DB: ${{ secrets.DB_NAME }}
-          POSTGRES_USER: ${{ secrets.DB_USER }}
-          POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          POSTGRES_DB: livre
+          POSTGRES_USER: jonathan_impe
+          POSTGRES_PASSWORD: XgZG4WTHg1WAHMbd
         ports:
           - 5432:5432
         options: >-
@@ -27,7 +27,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: 3.8
         
     - name: Install dependencies
       run: |
@@ -36,13 +36,35 @@ jobs:
         
     - name: Run migrations
       run: python manage.py migrate
+      env:
+        DJANGO_DB_MODE: dev
+        DEBUG: False
+        DB_NAME: livre
+        DB_USER: jonathan_impe
+        DB_PASSWORD: XgZG4WTHg1WAHMbd
+        DB_HOST: livre.postgres.database.azure.com
+        DB_PORT: 5432
       
     - name: Run tests with coverage
       run: |
         pytest --cov=./ --cov-report=xml
       env:
-        DATABASE_URL: postgres://${{ secrets.DB_USER }}:${{ secrets.DB_PASSWORD }}@localhost:5432/${{ secrets.DB_NAME }}
+        DJANGO_DB_MODE: dev
+        DEBUG: False
+        DB_NAME: livre
+        DB_USER: jonathan_impe
+        DB_PASSWORD: XgZG4WTHg1WAHMbd
+        DB_HOST: livre.postgres.database.azure.com
+        DB_PORT: 5432
         
     - name: Check minimum test coverage
       run: |
         coverage report --fail-under=80
+      env:
+        DJANGO_DB_MODE: dev
+        DEBUG: False
+        DB_NAME: livre
+        DB_USER: jonathan_impe
+        DB_PASSWORD: XgZG4WTHg1WAHMbd
+        DB_HOST: livre.postgres.database.azure.com
+        DB_PORT: 5432
