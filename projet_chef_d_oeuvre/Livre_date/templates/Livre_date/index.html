@@ -4,6 +4,6 @@
 {% if user.is_authenticated %}
 Bonjour, {{ first_name }} !
 {% else %}
-<p>Veuillez vous <a href="{% url 'login' %}">connecter</a>.</p>
+<p>Veuillez vous <a href="{% url 'login' %}">connecter</a>...</p>
 {% endif %}
 {% endblock %}
